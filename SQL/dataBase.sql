@@ -10,6 +10,7 @@ CREATE TABLE IF NOT EXISTS users(
     user_login VARCHAR(64) NOT NULL,
     user_email VARCHAR(64) NOT NULL,
     user_password VARCHAR(64) NOT NULL,
+    token VARCHAR(40),
     salt VARCHAR(128) NOT NULL,
     user_address VARCHAR(128)
 
@@ -52,6 +53,8 @@ CREATE TABLE IF NOT EXISTS allergens(
 );
 
 
+
+
 CREATE TABLE IF NOT EXISTS products(
     id_product INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     id_underProduct INT NOT NULL,
@@ -61,7 +64,6 @@ CREATE TABLE IF NOT EXISTS products(
     product_startPrice decimal(10,2) NOT NULL,
     price decimal(10,2) NOT NULL DEFAULT 0,
     id_category_type INT NOT NULL, -- 1 или 2 (напиток или закуска, и тд, у них есть свои подкатегории)
-
 
     FOREIGN KEY(id_category_type) REFERENCES categories(id_category_type)
 );
@@ -74,7 +76,6 @@ CREATE TABLE IF NOT EXISTS additionToProducts(
     FOREIGN KEY(id_product) REFERENCES products(id_product),
     FOREIGN KEY(id_addition) REFERENCES additions(id_addition)
 );
-
 
 
 CREATE TABLE IF NOT EXISTS beverages( 
@@ -528,7 +529,7 @@ delimiter //
 create function get_hash(salt varchar(128), value varchar(128))
 returns varchar(128)
 begin
-return SHA2(concat(salt, value),512);
+return SHA1(concat(salt, value));
 end//
 delimiter ;
 
@@ -536,8 +537,8 @@ delimiter //
 create trigger insert_users before insert on users
 for each row
 begin
-    set new.salt = sha2(rand(), 512);
-    set new.user_password = get_hash(new.salt, new.user_password);
+    set new.salt = sha1(rand());
+    set new.user_password = get_hash(new.salt, new.user_password);    
 end//
 delimiter ;
 
@@ -547,6 +548,8 @@ create trigger update_user_info before update on users
 for each row
 begin 
     set new.salt = old.salt;
-    set new.user_password = get_hash(old.salt, new.user_password);
+    IF (OLD.user_password != NEW.user_password)THEN
+        set new.user_password = get_hash(new.salt, new.user_password);
+    END IF;
 end//
 delimiter ;

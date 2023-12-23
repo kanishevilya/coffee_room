@@ -14,9 +14,20 @@ class Model_Store implements Model{
         include(__DIR__ . "/../methods/store/getSortedByNameProducts.php");
         return $data;
     }
-    public static function getBaseProduct() : array{
-        include(__DIR__ . '/../methods/store/getBaseProduct.php');
-        return $data;
+    public static function getMaxId(){
+        $sql="SELECT id_product FROM products ORDER BY id_product DESC LIMIT 1";
+        return (Database::getAll($sql,[]))[0]["id_product"];
+    }
+    public static function getBaseProduct($_id=null) : array{
+        $id=isset($_GET["id"])?$_GET["id"]:null;
+        if($id==null && $_id==null){return array("message"=>"Enter an ID");}
+        $sql="SELECT * FROM products as p WHERE p.id_product = :id";
+        $arr=["id"=>$id];
+        if($_id!=null){
+            $arr=["id"=>$_id];
+        }
+
+        return Database::getAll($sql,$arr);
     }
     public static function getFullProduct() : array{
         include(__DIR__ . '/../methods/store/getFullProduct.php');

@@ -118,41 +118,46 @@ CREATE TABLE IF NOT EXISTS allergensToProduct(
 CREATE TABLE IF NOT EXISTS orders(
     id_order INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     orderDate DATETIME NOT NULL DEFAULT NOW(),
-    comments VARCHAR(128),
-    total_price decimal(10,2) NOT NULL,
+    comments TEXT,
+    total_price decimal(10,2),
     id_user INT NOT NULL,
-
+    
     FOREIGN KEY(id_user) REFERENCES users(id_user)
 );
 
 CREATE TABLE IF NOT EXISTS orderDetails(
+    id_orderDetails INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     id_order INT NOT NULL,
-    id_underProduct INT NOT NULL,
+    id_product INT NOT NULL,
 
+
+    JSON_modifications TEXT,
     productsAmount INT NOT NULL,
     priceEach decimal(10,2)	 NOT NULL,
-
-    PRIMARY KEY (id_order, id_underProduct),
+    id_category_type INT NOT NULL,
 
     FOREIGN KEY(id_order) REFERENCES orders(id_order),
-    FOREIGN KEY(id_underProduct) REFERENCES products(id_product)
+    FOREIGN KEY(id_product) REFERENCES products(id_product)
 );
 
 
 -- Cart (products, total price)
 
 CREATE TABLE IF NOT EXISTS cartDetails(
-    id_cartDetails INT NOT NULL,
+    id_cartDetails INT NOT NULL AUTO_INCREMENT,
     id_user INT NOT NULL,
-    id_underProduct INT NOT NULL,
+    id_product INT NOT NULL,
 
     productsAmount INT NOT NULL,
     priceEach decimal(10,2) NOT NULL,
+    id_category_type INT NOT NULL,
 
-    PRIMARY KEY (id_cartDetails, id_underProduct),
+    JSON_modifications TEXT,
+
+    PRIMARY KEY (id_cartDetails, id_product),
 
     FOREIGN KEY(id_user) REFERENCES users(id_user),
-    FOREIGN KEY(id_underProduct) REFERENCES products(id_product)
+    FOREIGN KEY(id_product) REFERENCES products(id_product)
 );
 
 INSERT INTO categories (category_name) VALUES

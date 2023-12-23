@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS coffeehouse;
-CREATE DATABASE IF NOT EXISTS coffeehouse;
-use coffeehouse;
+DROP DATABASE IF EXISTS coffeeroom;
+CREATE DATABASE IF NOT EXISTS coffeeroom;
+use coffeeroom;
 
 
 
@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS users(
     user_login VARCHAR(64) NOT NULL,
     user_email VARCHAR(64) NOT NULL,
     user_password VARCHAR(64) NOT NULL,
-
+    salt VARCHAR(128) NOT NULL,
     user_address VARCHAR(128)
 
 );
@@ -40,7 +40,8 @@ CREATE TABLE IF NOT EXISTS categories(
 
 CREATE TABLE IF NOT EXISTS additions(
     id_addition INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    id_underAdd INT NOT NULL, 
+    name VARCHAR(32) NOT NULL, 
+    price decimal(10,2) NOT NULL,
     addition_type ENUM("syrups", "spices", "condiments") NOT NULL
 );
 
@@ -54,11 +55,11 @@ CREATE TABLE IF NOT EXISTS allergens(
 CREATE TABLE IF NOT EXISTS products(
     id_product INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     id_underProduct INT NOT NULL,
-    product_name VARCHAR(32) NOT NULL,
+    product_name VARCHAR(128) NOT NULL,
     product_image TEXT NOT NULL,
     product_description TEXT NOT NULL,
     product_startPrice decimal(10,2) NOT NULL,
-    
+    price decimal(10,2) NOT NULL DEFAULT 0,
     id_category_type INT NOT NULL, -- 1 или 2 (напиток или закуска, и тд, у них есть свои подкатегории)
 
 
@@ -74,24 +75,6 @@ CREATE TABLE IF NOT EXISTS additionToProducts(
     FOREIGN KEY(id_addition) REFERENCES additions(id_addition)
 );
 
-CREATE TABLE IF NOT EXISTS syrups(
-    id_syrup INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    syrup_name VARCHAR(32) NOT NULL,
-    price decimal(10,2)	NOT NULL
-);
-
-CREATE TABLE IF NOT EXISTS spices(
-    id_spice INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    spice_name VARCHAR(32) NOT NULL,
-    price decimal(10,2)	NOT NULL
-);
-
-
-CREATE TABLE IF NOT EXISTS condiments(
-    id_condiment INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    condiment_name VARCHAR(32) NOT NULL,
-    price decimal(10,2)	NOT NULL
-);
 
 
 CREATE TABLE IF NOT EXISTS beverages( 
@@ -176,65 +159,33 @@ INSERT INTO categories (category_name) VALUES
 ("food");
 
 
-INSERT INTO syrups (syrup_name, price) VALUES 
-("Vanilla", 0.75),
-("Caramel", 0.65),
-("Chocolate", 0.90),
-("Almond", 0.80),
-("Coconut", 0.50),
-("Mint", 0.45),
-("Orange", 0.60);
-
-INSERT INTO spices (spice_name, price) VALUES 
-("Cocoa", 0.25),
-("Nutmeg", 0.18),
-("Ginger", 0.22),
-("Cardamom", 0.30),
-("Anise", 0.28),
-("Salt", 0.20),
-("Cinnamon", 0.15);
-
-
-
-INSERT INTO condiments (condiment_name, price) VALUES
-("Paprika", 1.99),
-("Garlic powder", 2.49),
-("Himalayan salt", 3.99),
-("Black pepper", 1.79),
-("Parmesan", 4.99),
-("Turmeric", 2.29),
-("Cilantro", 1.49),
-("Sugar", 1.99),
-("Curry", 2.99),
-("Truffle oil", 7.99);
-
-INSERT INTO additions (id_underAdd, addition_type) VALUES
-( 1, "syrups"), -- 1
-( 2, "syrups"), -- 2
-( 3, "syrups"), -- 3
-( 4, "syrups"), -- 4
-( 5, "syrups"), -- 5
-( 6, "syrups"), -- 6
-( 7, "syrups"), -- 7
+INSERT INTO additions (name, addition_type, price) VALUES
+( "Vanilla",   "syrups",0.75), -- 1
+( "Caramel",   "syrups",0.65), -- 2
+( "Chocolate", "syrups",0.90), -- 3
+( "Almond",    "syrups",0.80), -- 4
+( "Coconut",   "syrups",0.50), -- 5
+( "Mint",      "syrups",0.45), -- 6
+( "Orange",    "syrups",0.60), -- 7
 --
-( 1, "spices"), -- 8
-( 2, "spices"), -- 9
-( 3, "spices"), -- 10
-( 4, "spices"), -- 11
-( 5, "spices"), -- 12
-( 6, "spices"), -- 13
-( 7, "spices"), -- 14
+( "Cocoa",   "spices", 0.25), -- 8
+( "Nutmeg",  "spices", 0.18), -- 9
+( "Ginger",  "spices", 0.22), -- 10
+( "Cardamom","spices", 0.30), -- 11
+( "Anise",   "spices", 0.28), -- 12
+( "Salt",    "spices", 0.20), -- 13
+( "Cinnamon","spices", 0.15), -- 14
 
-( 1, "condiments"), -- 15
-( 2, "condiments"), -- 16
-( 3, "condiments"), -- 17
-( 4, "condiments"), -- 18
-( 5, "condiments"), -- 19
-( 6, "condiments"), -- 20
-( 7, "condiments"), -- 21
-( 8, "condiments"), -- 22
-( 9, "condiments"), -- 23
-( 10, "condiments"); 
+( "Paprika",        "condiments" , 1.99), -- 15
+( "Garlic powder",  "condiments" , 2.49), -- 16
+( "Himalayan salt", "condiments" , 3.99), -- 17
+( "Black pepper",   "condiments" , 1.79), -- 18
+( "Parmesan",       "condiments" , 4.99), -- 19
+( "Turmeric",       "condiments" , 2.29), -- 20
+( "Cilantro",       "condiments" , 1.49), -- 21
+( "Sugar",          "condiments" , 1.99), -- 22
+( "Curry",          "condiments" , 2.99), -- 23
+( "Truffle oil",     "condiments", 7.99); 
 
 
 
@@ -563,3 +514,39 @@ INSERT INTO allergensToProduct(id_product, id_allergen) VALUES
 (59,21),
 (60,17);
 
+
+
+CREATE VIEW productsPrices as (
+    SELECT p.id_product,p.product_startPrice+SUM(a.price) as 'sum' FROM products as p JOIN additiontoproducts as aToP ON aToP.id_product=p.id_product JOIN additions as a ON aToP.id_addition = a.id_addition GROUP BY p.id_product
+);
+
+UPDATE products as p JOIN productsPrices as pp ON pp.id_product = p.id_product
+SET p.price=pp.sum;
+
+
+delimiter //
+create function get_hash(salt varchar(128), value varchar(128))
+returns varchar(128)
+begin
+return SHA2(concat(salt, value),512);
+end//
+delimiter ;
+
+delimiter //
+create trigger insert_users before insert on users
+for each row
+begin
+    set new.salt = sha2(rand(), 512);
+    set new.user_password = get_hash(new.salt, new.user_password);
+end//
+delimiter ;
+
+
+delimiter //
+create trigger update_user_info before update on users
+for each row
+begin 
+    set new.salt = old.salt;
+    set new.user_password = get_hash(old.salt, new.user_password);
+end//
+delimiter ;

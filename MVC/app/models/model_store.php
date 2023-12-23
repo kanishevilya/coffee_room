@@ -6,6 +6,14 @@ class Model_Store implements Model{
         include(__DIR__ . '/../methods/store/getAllBaseProducts.php');
         return $data;
     }
+    public static function getSortedByPriceProducts($isAsc=true) : array{
+        include(__DIR__ . "/../methods/store/getSortedByPriceProducts.php");
+        return $data;
+    }
+    public static function getSortedByNameProducts($isAsc=true) : array{
+        include(__DIR__ . "/../methods/store/getSortedByNameProducts.php");
+        return $data;
+    }
     public static function getBaseProduct() : array{
         include(__DIR__ . '/../methods/store/getBaseProduct.php');
         return $data;

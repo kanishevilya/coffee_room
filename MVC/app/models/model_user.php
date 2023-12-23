@@ -14,6 +14,14 @@ class Model_User implements Model{
         );
         return Database::getRow($sql, $arr);
     }
+    public static function getCurrentUser(){
+        if(!isset($_COOKIE["token"])){return array("message"=>"You are not authorized!");}
+        $sql="SELECT * FROM users WHERE token = :token";
+        $arr=array(
+            "token"=>$_COOKIE["token"]
+        );
+        return Database::getRow($sql, $arr);
+    }
     public static function registration(){
         include(__DIR__ . '/../methods/user/registration.php');
         return $data;

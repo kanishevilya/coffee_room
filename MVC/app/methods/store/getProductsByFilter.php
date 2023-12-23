@@ -7,12 +7,27 @@ $min = isset($_GET["minPrice"]) ? $_GET["minPrice"] : null;
 $max = isset($_GET["maxPrice"]) ? $_GET["maxPrice"] : null;
 $allergens = isset($_GET["allergens"])? json_decode($_GET["allergens"]):null;
 $additions = isset($_GET["additions"])? json_decode($_GET["additions"]):null;
+$isAscPriceSort = isset($_GET["isAscPrice"]) ? $_GET["isAscPrice"] : null;
+$isAscNameSort = isset($_GET["isAscName"]) ? $_GET["isAscName"] : null;
+
 $data=null;
 
+if($isAscPriceSort == "true"){
+    $data=Model_Store::getSortedByPriceProducts(true);
+}else if ($isAscPriceSort == "false"){
+    $data=Model_Store::getSortedByPriceProducts(false);
+}
+if($isAscNameSort == "true"){
+    $data=Model_Store::getSortedByNameProducts(true);
+}else if ($isAscNameSort == "false"){
+    $data=Model_Store::getSortedByNameProducts(false);
+}
+if($isAscPriceSort==null && $isAscNameSort == null){
+    $data=Model_Store::getAllBaseProducts();
+}
 
-$data=Model_Store::getAllBaseProducts();
 
-if(array_key_exists("message" ,$data)){
+if(array_key_exists("message", $data)){
     return;
 }
 if($max!=null && $min!=null){

@@ -19,29 +19,57 @@
 
     <section class="catalog">
 
-        <div class="left__part">
-            <h1 class="left__price">Price</h1>
-            <div class="line"></div>
-            <div class="prices">
-                <div class="">$ <input type="text" class="left__input__price"> </div>TO<div class=""> $ <input
-                        type="text" class="right__input__price">
+        <form id="form">
+            <div class="left__part">
+                <h1 class="left__price">Price</h1>
+                <div class="line"></div>
+                <div class="prices">
+                    <div class="">$ <input type="text" name="min__price" class="left__input__price"> </div>TO<div class=""> $ <input
+                            type="text" name="max__price" class="right__input__price">
+                    </div>
                 </div>
+                <button class="left__btn" type="submit">Filter</button>
+                <div class="left__name">
+                    Name
+                    <input type="text" name="input__name" class="left__input__name">
+                </div>
+                <div class="line"></div>
+                <div class="left__allergens">
+                    Product allergens
+                    <select id="select__allergens" name="select__allergens" class="select__allergens">
+                        <option value="0">Nothing</option>
+                    </select>
+                </div>
+                <div class="line"></div>
+                <div class="left__additions">
+                    Product additions
+                    <select id="select__additions" name="select__additions" class="select__additions">
+                        <option value="0">Nothing</option>
+                    </select>
+                </div>
+                <div class="line"></div>
+                <div class="left__category">
+                    Product category
+                    <select id="select__category" name="select__category" class="select__category">
+                        <option value="0">All</option>
+                        <option value="1">Beverages</option>
+                        <option value="2">Food</option>
+                    </select>
+                </div>
+                <div class="line"></div>
+                <div class="left__sort">
+                    Sort by
+                    <select id="select__sort" name="select__sort" class="select__sort">
+                        <option value="0">Any</option>
+                        <option value="1">Price 100$->1$</option>
+                        <option value="2">Price 1$->100$</option>
+                        <option value="3">Name A->Z</option>
+                        <option value="4">Name Z->A</option>
+                    </select>
+                </div>
+                <div class="line"></div>
             </div>
-            <div class="left__btn">Filter</div>
-            <div class="left__name">
-                Name
-                <input type="text" class="left__input__name">
-            </div>
-            <div class="line"></div>
-            <div class="left__genre">
-                Product genre
-                <select name="" id="" class="select__genre">
-                    <option value="all">all</option>
-                </select>
-            </div>
-            <div class="line"></div>
-        </div>
-
+        </form>
         <div id="productsBlock" class="productsBlock">
 
         </div>

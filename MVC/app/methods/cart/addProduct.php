@@ -56,11 +56,14 @@ if ($user !== null && $JSON_modifications !== null && $amount !== null && $id_pr
             $mod_price += ($mod["price"] * $mod["amount"]);
         }
     }
-    $sql = "INSERT INTO cartdetails (id_product, id_user, productsAmount, priceEach, JSON_modifications, id_category_type) VALUES (:id_product, :id_user, :amount, :price, :json, :id_category_type)";
+    $sql = "INSERT INTO cartdetails (id_product, id_user,name, productsAmount,product_description,product_image, priceEach, JSON_modifications, id_category_type) VALUES (:id_product, :id_user,:name, :amount,:product_description, :product_image, :price, :json, :id_category_type)";
     
     $arr = [
         "id_product" => $id_product,
         "id_user" => $id_user,
+        "name"=>$product[0]["product_name"],
+        "product_description"=>$product[0]["product_description"],
+        "product_image"=>$product[0]["product_image"],
         "amount" => $amount,
         "price" => ($product[0]["price"] * $mult) + $mod_price,
         "json" => $JSON_modifications,

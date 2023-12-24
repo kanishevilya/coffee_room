@@ -61,6 +61,22 @@ class Controller_Store extends Controller{
             $data
         );
     }
+    function action_getAllAllergens(){
+        $data=$this->model->getData("getAllAllergens");
+        $this->view->generate(
+            "store_view.php",
+            "template_view.php", 
+            $data
+        );
+    }
+    function action_getAllAdditions(){
+        $data=$this->model->getData("getAllAdditions");
+        $this->view->generate(
+            "store_view.php",
+            "template_view.php", 
+            $data
+        );
+    }
     function action_getProductsByFilter(){
         $data=$this->model->getData("getProductsByFilter");
         $this->view->generate(

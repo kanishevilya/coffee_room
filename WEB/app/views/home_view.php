@@ -96,7 +96,7 @@
                             guaranteed.</p>
                     </div>
                 </div>
-                <button class="catalogBtn" id="catalogBtn">Show catalog</button>
+                <button class="catalogBtn" id="catalogBtn" onclick="document.location='/ilya/EXAM/WEB/catalog/'">Show catalog</button>
             </div>
         </section>
     </main>

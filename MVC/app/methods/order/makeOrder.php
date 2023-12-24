@@ -7,6 +7,7 @@ if (!isset($_COOKIE["token"])) {
     return;
 }
 
+
 include_once ("addOrder.php");
 if($id_order!==null){
 

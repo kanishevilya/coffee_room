@@ -1,24 +1,26 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
 
-header{
+header {
     background-color: #3e342c;
 }
-body{
+
+body {
     background-color: rgb(223, 195, 152);
 }
 
-.productsBlock{
+.productsBlock {
     margin-top: 50px;
     margin-right: 50px;
     display: grid;
-    grid-template-columns: repeat(5,311px);
-    gap: 30px; 
+    grid-template-columns: repeat(3, 311px);
+    gap: 30px;
     margin-bottom: 50px;
 }
-.product{
+
+.product {
     height: fit-content;
     width: 311px;
     border-radius: 16px;
@@ -31,7 +33,7 @@ body{
     padding-bottom: 30px;
 }
 
-.img{
+.img {
     margin-top: 20px;
 
     height: 270px;
@@ -43,7 +45,7 @@ body{
     border-radius: 10px;
 }
 
-.productTitle{
+.productTitle {
     width: 260px;
     font-size: 20px;
     font-family: 'Barlow', sans-serif;
@@ -51,7 +53,7 @@ body{
     padding-top: 20px;
 }
 
-.productPrice{
+.productPrice {
     text-align: left;
     font-size: 30px;
     font-family: 'Barlow', sans-serif;
@@ -59,7 +61,7 @@ body{
     padding-left: 26px;
 }
 
-.lowerBlock{
+.lowerBlock {
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -68,12 +70,12 @@ body{
     margin-top: 40px;
 }
 
-.addBlock{
+.addBlock {
     width: 40px;
     height: 40px;
     background-color: #605042;
     border-radius: 5px;
-    color:white;
+    color: white;
     font-size: 40px;
 
     display: flex;
@@ -85,17 +87,184 @@ body{
     margin-right: 26px;
 }
 
-.addBlock:hover{
+.addBlock:hover {
     scale: calc(1.05);
     transition: 0.05s;
 }
 
-.catalog{
+.catalog {
     display: flex;
     justify-content: space-between;
+    height: 100%;
+    min-height: 830px;
 }
 
-.left__part{
+.left__part {
+    width: 480px;
+    height: 308px;
+
     margin-top: 50px;
-    margin-left: 50px;
+    margin-left: 150px;
+    margin-right: 50px;
+    margin-bottom: 60px;
+}
+
+.left__price {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 32px;
+
+    color: #3c2a21;
+}
+
+.line {
+    width: 480px;
+    height: 2px;
+
+    background: #675d50;
+
+    margin-top: 17px;
+    margin-bottom: 17px;
+}
+
+.prices {
+    width: 480px;
+
+    display: flex;
+
+    justify-content: space-between;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 32px;
+
+    color: #675d50;
+}
+
+.left__input__price,
+.right__input__price {
+    width: 170px;
+    height: 33px;
+    outline: none;
+    border: none;
+
+    margin-left: 9px;
+
+    padding-left: 5px;
+    padding-right: 5px;
+
+    background-color: #8fa38e;
+    border-radius: 3px;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    color: white;
+}
+
+.left__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 480px;
+    height: 44px;
+
+    background: #675d50;
+
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    text-transform: capitalize;
+
+    color: #ffffff;
+
+    margin-top: 23px;
+
+    border: 2px solid #675d50;
+    border-radius: 3px;
+}
+
+.left__btn:hover {
+    color: #675d50;
+    background-color: white;
+
+    transition: 0.1s;
+}
+
+.left__name {
+    width: 480px;
+
+    display: flex;
+    justify-content: space-between;
+
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 32px;
+
+    color: #3c2a21;
+
+    margin-top: 19px;
+}
+
+.left__input__name {
+    width: 416px;
+    height: 33px;
+
+    outline: none;
+    border: none;
+
+    margin-left: 9px;
+
+    padding-left: 5px;
+    padding-right: 5px;
+
+    background-color: #675d50;
+    border-radius: 3px;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    color: white;
+}
+
+
+.left__allergens, .left__category, .left__sort, .left__additions{
+    width: 480px;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 32px;
+
+    color: #3c2a21;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.select__allergens, .select__category, .select__sort, .select__additions {
+    width: 300px;
+    height: 30px;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 32px;
+
+    color: #a7362e;
+
+    border: 1px solid #a7362e;
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 3px;
+    outline: none;
 }

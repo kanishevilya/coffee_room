@@ -16,6 +16,7 @@ class Model_Cart implements Model{
         include(__DIR__ . '/../methods/cart/addProduct.php');
         return $data;
     }
+    
     public static function removeProduct() : array{
         include(__DIR__ . '/../methods/cart/removeProduct.php');
         return $data;

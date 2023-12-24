@@ -87,8 +87,16 @@ class Model_Store implements Model
         include(__DIR__ . '/../methods/store/getProductsByFilter.php');
         return $data;
     }
-
-
+    public static function getAllAllergens(): array
+    {
+        include(__DIR__ . '/../methods/store/getAllAllergens.php');
+        return $data;
+    }
+    public static function getAllAdditions(): array
+    {
+        include(__DIR__ . '/../methods/store/getAllAdditions.php');
+        return $data;
+    }
     public function getData(string $flag)
     {
         switch ($flag) {
@@ -106,6 +114,10 @@ class Model_Store implements Model
                 return array("response" => self::getProductsByName());
             case "getProductsByFilter":
                 return array("response" => self::getProductsByFilter());
+            case "getAllAllergens":
+                return array("response" => self::getAllAllergens());
+            case "getAllAdditions":
+                return array("response" => self::getAllAdditions());
             default:
                 return array("response" => '{"message": "Method not found"}');
         }

@@ -131,6 +131,8 @@ CREATE TABLE IF NOT EXISTS orderDetails(
     id_order INT NOT NULL,
     id_product INT NOT NULL,
 
+    name VARCHAR(128) NOT NULL,
+    product_description TEXT NOT NULL,
 
     JSON_modifications TEXT,
     productsAmount INT NOT NULL,
@@ -149,6 +151,9 @@ CREATE TABLE IF NOT EXISTS cartDetails(
     id_user INT NOT NULL,
     id_product INT NOT NULL,
 
+    product_image TEXT NOT NULL,
+    name VARCHAR(128) NOT NULL,
+    product_description TEXT NOT NULL,
     productsAmount INT NOT NULL,
     priceEach decimal(10,2) NOT NULL,
     id_category_type INT NOT NULL,

@@ -1,0 +1,103 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #3e342c;
+}
+
+.cart{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    min-height: 730px;
+}
+
+.product {
+    height: 300px;
+    width: 800px;
+    border-radius: 16px;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.15);
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.img {
+    margin-left: 15px;
+
+    height: 270px;
+    width: 270px;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    border-radius: 10px;
+}
+
+
+.productTitle {
+    width: 350px;
+    font-size: 20px;
+    font-family: 'Barlow', sans-serif;
+    color: #2d2d2d;
+    padding-top: 20px;
+}
+
+.subtitle {
+    width: 350px;
+    font-size: 16px;
+    font-family: 'Barlow', sans-serif;
+    color: #2d2d2d;
+    padding-top: 20px;
+}
+
+
+.productPrice {
+    text-align: left;
+    font-size: 30px;
+    font-family: 'Barlow', sans-serif;
+    color: #11706e;
+
+}
+
+.rightBlock {
+    width: 400px;
+
+}
+
+.lowerBlock{
+    margin-top: 26px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.remove{
+    padding-right: 60px;
+    color: #a7362e;
+    font-size: 30px;
+    font-family: 'Barlow', sans-serif;
+    cursor: pointer;
+}
+
+.makeOrderBtn{
+    width: 350px;
+    height: 50px;
+    background-color: #AD7D55;
+    color: white;
+    font-family: 'Calibri' sans-serif;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}

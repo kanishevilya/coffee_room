@@ -16,7 +16,7 @@ class Controller_User extends Controller{
     function action_registration(){
         $data=$this->model->getData("registration");
         $this->view->generate(
-            "registration_view.php",
+            "register_view.php",
             "template_view.php", 
             $data
         );
@@ -24,7 +24,7 @@ class Controller_User extends Controller{
     function action_authentication(){
         $data=$this->model->getData("authentication");
         $this->view->generate(
-            "authentication_view.php",
+            "login_view.php",
             "template_view.php", 
             $data
         );

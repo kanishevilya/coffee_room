@@ -9,7 +9,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Clicker+Script&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="app/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/ilya/EXAM/WEB/app/css/home.css">
+    <link rel="stylesheet" href="/ilya/EXAM/WEB/app/css/header.css">
 </head>
 
 <body>
@@ -24,14 +26,42 @@
                 </p>
                 <p class="header_coffeeTitle">Coffee</p>
                 <p class="header_subTitle">
-                It is best to start your day with a cup of coffee. Discover the
-best flavours coffee you will ever have. We provide the best
-for our customers.
+                    It is best to start your day with a cup of coffee. Discover the
+                    best flavours coffee you will ever have. We provide the best
+                    for our customers.
                 </p>
-                <button class="header_btn">Join us</button>
+                <button class="header_btn" onclick="document.location='/ilya/EXAM/WEB/user/registration'">Join
+                    us</button>
             </div>
         </div>
     </header>
+    <main>
+        <section class="first">
+            <p class="second-title">our collection</p>
+            <div class="types">
+                <div class="type">
+                    <div class="imgFirst img"></div>
+                    <p class="type-title">Gran Espresso</p>
+                    <p class="type-subtitle">Light and flavorful blend with cocoa and black pepper for an intense experience</p>
+                </div>
+                <div class="type">
+                    <div class="imgSecond img"></div>
+                    <p class="type-title">Planalto</p>
+                    <p class="type-subtitle">Brazilian dark roast with rich and velvety body, and hints of fruits and nuts</p>
+                </div>
+                <div class="type">
+                    <div class="imgThird img"></div>
+                    <p class="type-title">Piccollo</p>
+                    <p class="type-subtitle">Mild and smooth blend featuring notes of toasted almond and dried cherry</p>
+                </div>
+                <div class="type">
+                    <div class="imgFourth img"></div>
+                    <p class="type-title">Danche</p>
+                    <p class="type-subtitle">Ethiopian hand-harvested blend densely packed with vibrant fruit notes</p>
+                </div>
+            </div>
+        </section>
+    </main>
 
 </body>
 

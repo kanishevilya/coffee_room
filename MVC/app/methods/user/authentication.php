@@ -14,7 +14,7 @@ if (($login != null || $email !=null) && $password != null) {
     foreach ($users as $user) {
         if (($login == $user["user_login"] || $email==$user["user_email"]) && sha1($user["salt"].$password) == $user["user_password"]) {
             Model_User::tokenSet($user["user_login"], $user["id_user"]);
-            $data=array( "response"=> "Successful authorization");
+            $data=array( "message"=> "Successful authorization");
             return;
         }
     }

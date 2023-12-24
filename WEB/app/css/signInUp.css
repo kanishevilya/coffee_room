@@ -1,0 +1,100 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body, html {
+    height: 100%;
+}
+.backGroundLogin{
+    height: 100%;
+    background-image: url("../img/signInUp/Login.png");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.backGroundRegister{
+    height: 100%;
+    background-image: url("../img/signInUp/Register.png");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.form{
+    width: 550px;
+    margin: 0 auto;
+    padding-top: 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.block{
+    width: 220px;
+    height: 85px;
+    background-color: #FFE4CD;
+    border-radius: 10px;
+    color: #0C0402;
+    font-family: 'Glegoo', serif;
+    font-size: 48px;
+    font-weight: bold;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input{
+    width: 550px;
+    height: 68px;
+    border: none;
+    box-sizing: border-box;
+
+    border-radius: 8px;
+    background-color: rgba(255,255,255,0.4);
+
+    color: white;
+    font-family: 'Glegoo', serif;
+    font-size: 18px;
+    font-weight: 500;
+    padding-left: 20px;
+}
+
+input::placeholder{
+    color: white;
+    font-family: 'Glegoo', serif;
+    font-size: 15px;
+    font-weight: 500;
+    /* padding-left: 20px; */
+}
+
+.firstInput{
+    margin-top: 60px;
+}
+
+button{
+    width: 550px;
+    height: 50px;
+    background-color: #AD7D55;
+    color: white;
+    font-family: 'Calibri' sans-serif;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.or{
+    color: white;
+    font-family: 'Calibri' sans-serif;
+    font-size: 20px;
+}
+
+.href{
+    padding-top: 14px;
+    color: wheat;
+    font-family: 'Calibri' sans-serif;
+    font-size: 24px;
+    text-decoration: none;
+
+}

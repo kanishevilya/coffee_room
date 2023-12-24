@@ -1,23 +1,14 @@
-async function getJson(url){
-    let response=await fetch(url);
-    let promise=await response.json();
-    return promise;
+
+let form = document.querySelector("#form");
+
+form.onsubmit = (e) => {
+    e.preventDefault();
+    let login = form.login;
+    let password = form.password;
+    let path = `/ilya/EXAM/MVC/user/authentication?login=${login.value}&password=${password.value}`;
+    getJson(path).then(resp => {
+        alert(resp.message);
+        window.location.href="/ilya/EXAM/WEB/home";
+    });
 }
 
-
-let btn=document.querySelector("#loginBtn");
-
-btn.addEventListener("click", (e)=>{
-    e.preventDefault();
-    let login=document.querySelector("#login");
-    let password=document.querySelector("#password");
-    let path=`../app/apies/loginCheck.php?login=${login.value}&password=${password.value}`;
-    console.log(path);
-    getJson(path).then(resp=>{
-        if(resp.response==true){
-            alert("Вы успешно авторизовались!");
-        }else{
-            alert("Неверный логин или пароль!");
-        }
-    });
-})

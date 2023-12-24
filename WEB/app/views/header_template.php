@@ -5,23 +5,25 @@
 
         <div class="lists">
             <ol class="baseList">
-                <li>HOME</li>
-                <li>CATALOG</li>
+                <li><a href="/ilya/EXAM/WEB/home">HOME</a></li>
+                <li><a href="">CATALOG</a></li>
             </ol>
             <?php if (isset($_COOKIE["token"])): ?>
                 <ol class="addList">
-                    <li>ORDERS</li>
-                    <li>CART</li>
+                    <li><a href="">ORDERS</a></li>
+                    <li><a href="">CART</a></li>
                 </ol>
             <?php endif; ?>
         </div>
         <div class="userAction">
             <?php if (isset($_COOKIE["token"])): ?>
-                <span class="logout">Logout</span>
+                <a id="logout" class="logout">Logout</a>
             <?php else: ?>
-                <span class="signin">Sign IN</span>
-                <span class="signup">Sign UP</span>
+                <a  href="/ilya/EXAM/WEB/user/authentication" class="signin">Sign IN</a>
+                <a  href="/ilya/EXAM/WEB/user/registration" class="signup">Sign UP</a>
             <?php endif; ?>
         </div>
     </div>
 </div>
+<script src="/ilya/EXAM/WEB/app/scripts/func.js"></script>
+<script src="/ilya/EXAM/WEB/app/scripts/logout.js"></script>

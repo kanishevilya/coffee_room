@@ -118,7 +118,7 @@ CREATE TABLE IF NOT EXISTS allergensToProduct(
 CREATE TABLE IF NOT EXISTS orders(
     id_order INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     orderDate DATETIME NOT NULL DEFAULT NOW(),
-    deliveryDate DATETIME NOT NULL DEFAULT addtime(NOW(), '48:00:00'),
+    deliveryDate DATETIME NOT NULL DEFAULT addtime(NOW(), '00:03:00'),
     comments TEXT,
     total_price decimal(10,2),
     id_user INT NOT NULL,

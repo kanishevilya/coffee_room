@@ -19,9 +19,18 @@
 
     <section class="cart">
         <div id="productsBlock" class="productsBlock">
-            
+
         </div>
-        <button class="makeOrderBtn" id="makeOrderBtn">Make an order</button>
+        <form id="form">
+            <input type="number" name="number" min="1000000000000000" max="9999999999999999" placeholder="Card number" required><br>
+            <div class="">
+                <input type="number" class="short" name="month" min="1" max="12" placeholder="MM" required>
+                <input type="number" class="short" name="year" min="1970" placeholder="YYYY" required><br>
+            </div>
+            
+            <input type="number" name="code" min="100" max="999" placeholder="Code" required><br>
+            <button class="makeOrderBtn" id="makeOrderBtn" type="submit">Make an order</button>
+        </form>
     </section>
     <?php include_once("footer_template.php") ?>
     <script src="/ilya/EXAM/WEB/app/scripts/func.js"></script>

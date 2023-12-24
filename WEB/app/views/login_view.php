@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Glegoo&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/ilya/EXAM/WEB/app/css/signInUp.css">
     <link rel="stylesheet" href="/ilya/EXAM/WEB/app/css/header.css">
+    <link rel="stylesheet" href="/ilya/EXAM/WEB/app/css/footer.css">
 </head>
 
 <body>
@@ -28,6 +29,7 @@
             <a href="/ilya/EXAM/WEB/user/registration" class="href">Register</a>
         </form>
     </div>
+    <?php include_once("footer_template.php") ?>
 
     <script src="/ilya/EXAM/WEB/app/scripts/login.js"></script>
 </body>

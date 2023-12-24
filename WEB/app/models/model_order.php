@@ -7,34 +7,18 @@ class Model_Order implements Model{
         return $data;
     }
 
-    public static function getAllOrders() : array{
-        $sql="SELECT * FROM orders";
-        return Database::getAll($sql, []);
-    }
 
-    public static function addOrder() : array{
-        include(__DIR__ . '/../methods/order/addOrder.php');
-        return $data;
-    }
-    
-    public static function makeOrder() : array{
-        include(__DIR__ . '/../methods/order/makeOrder.php');
-        return $data;
-    }
-    public static function payOrder() : array{
-        include(__DIR__ . '/../methods/order/payOrder.php');
-        return $data;
-    }
     public function getData(string $flag){
-        switch($flag){
-            case "getOrders": return array("response"=>self::getOrders());
-            case "getAllOrders": return array("response"=>self::getAllOrders());
-            case "addOrder": return array("response"=>self::addOrder());
-            case "makeOrder": return array("response"=>self::makeOrder());
-            case "payOrder": return array("response"=>self::payOrder());
+        // switch($flag){
+        //     case "getOrders": return array("response"=>self::getOrders());
+        //     case "getAllOrders": return array("response"=>self::getAllOrders());
+        //     case "addOrder": return array("response"=>self::addOrder());
+        //     case "makeOrder": return array("response"=>self::makeOrder());
+        //     case "payOrder": return array("response"=>self::payOrder());
 
-            default:
-            return array("response"=>'{"message": "Method not found"}');
-        }
+        //     default:
+        //     return array("response"=>'{"message": "Method not found"}');
+        // }
+        return "";
     }
 }

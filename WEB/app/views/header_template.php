@@ -10,7 +10,7 @@
             </ol>
             <?php if (isset($_COOKIE["token"])): ?>
                 <ol class="addList">
-                    <li><a href="">ORDERS</a></li>
+                    <li><a href="/ilya/EXAM/WEB/order">ORDERS</a></li>
                     <li><a href="/ilya/EXAM/WEB/cart">CART</a></li>
                 </ol>
             <?php endif; ?>

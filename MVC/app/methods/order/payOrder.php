@@ -10,19 +10,17 @@ $month=isset($_GET["month"]) ? $_GET["month"] : null;
 $year=isset($_GET["year"]) ? $_GET["year"] : null;
 $code=isset($_GET["code"]) ? $_GET["code"] : null;
 
+if($number!==null && $month!==null && $year!==null &&$code!==null){
 
-
-if($number!==null && $month!==null &&$year!==null &&$code!==null){
-
-    if($year < date('y')){
-        $data= array( "message"=> "0 Date has expired!"); return;
-    } else if ($year == date('y')){
+    if($year < date('Y')){
+        $data= array( "message"=> "Date has expired!"); return;
+    } else if ($year == date('Y')){
         if($month<date('m')){
-            $data= array( "message"=> "0 Date has expired!"); return;
+            $data= array( "message"=> "Date has expired!"); return;
         }
     }
     
-    $data=array("message"=> "1 Payment completed!");
+    $data=array("message"=> "Payment completed!");
 }else{
-    $data=array("message"=> "0 Incomplete information!");
+    $data=array("message"=> "Incomplete information!");
 }

@@ -61,14 +61,14 @@ body {
 
 .first {
     width: 100%;
-    height: 1000px;
+    height: 800px;
     background-color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.second-title {
+.first-title {
     position: relative;
     
     font-size: 120px;
@@ -98,6 +98,10 @@ body {
     width: 428px;
     height: 324px;
 }
+.img:hover{
+    scale: calc(1.1);
+    transition: 0.07s;
+}
 .imgFirst{
     background-image: url("../img/home/first/1.png");
 }
@@ -125,4 +129,124 @@ body {
     text-align: center;
     font-family: 'Barlow', sans-serif;
     color: #333D4B;
+}
+
+.second{
+    height: 1200px;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.second-block{
+    width: 1746px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.second-back{
+    height: 787px;
+    width: 100%;
+    background-color: #2C343E;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.second-title{
+    font-size: 40px;
+    text-align: center;
+    font-family: 'Barlow', sans-serif;
+    color: white;
+    padding-top: 165px;
+}
+
+.second-subtitle{
+    font-size: 16px;
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+    padding-top: 32px;
+    width: 550px;
+    font-weight: 100;
+}
+
+.second-infoblocks{
+    width: 1514px;
+    height: 520px;
+
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    top: -300px;
+}
+
+.info-block{
+    width: 477.42px;
+    background-color: #0E8784;
+    border-radius: 8px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.second-img{
+    width: 100px;
+    height: 100px;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    margin-top: 100px;
+}
+.second-img1{
+    background-image: url("../img/home/second/coffee-bean.svg");
+
+}
+.second-img2{
+    background-image: url("../img/home/second/present.svg");
+
+}
+.second-img3{
+    background-size:auto;
+    background-image: url("../img/home/second/car.svg");
+
+}
+.info-block-title{
+    text-align: center;
+    font-family: 'Barlow', sans-serif;
+    color: #FDD6BA;
+    padding-top: 110px;
+    font-size: 30px;
+}
+
+.info-block-subtitle{
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #FDD6BA;
+    padding-top: 20px;
+    font-size: 16px;
+    width: 320px;
+}
+
+.catalogBtn{
+    width: 300px;
+    height: 80px;
+    background-color: #F9C06A;
+    border: none;
+    border-radius: 6px;
+
+    font-size: 20px;
+    font-family: 'Barlow', sans-serif;
+
+    color: #196b69;
+    cursor: pointer;
+
+    margin-top: -240px;
 }

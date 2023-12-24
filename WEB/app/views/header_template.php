@@ -1,4 +1,4 @@
-<div class="headerSection">
+<header>
     <div class="logo"></div>
 
     <div class="rightPart">
@@ -6,7 +6,7 @@
         <div class="lists">
             <ol class="baseList">
                 <li><a href="/ilya/EXAM/WEB/home">HOME</a></li>
-                <li><a href="">CATALOG</a></li>
+                <li><a href="/ilya/EXAM/WEB/catalog">CATALOG</a></li>
             </ol>
             <?php if (isset($_COOKIE["token"])): ?>
                 <ol class="addList">
@@ -24,6 +24,6 @@
             <?php endif; ?>
         </div>
     </div>
-</div>
+</header>
 <script src="/ilya/EXAM/WEB/app/scripts/func.js"></script>
 <script src="/ilya/EXAM/WEB/app/scripts/logout.js"></script>
